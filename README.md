@@ -34,7 +34,7 @@ This is where we hope to bridge the gap for new Bicep users getting started, or 
 
 Using simple templated examples, with test data, the examples in this repository we hope will enable others to learn and benefit from.
 
-Within the `Examples` folder you will find categorised concept folders that further contain example `.bicep` templates and their supporting documentation & files.
+Within the `bicep-examples` or `bicep-cicd-examples` folders you will find categorised concept folders that further contain example `.bicep` templates and their supporting documentation & files.
 
 These will showcase a particular Bicep concept with a corresponding README file to give an explanation of what the example is, and how it can benefit.
 

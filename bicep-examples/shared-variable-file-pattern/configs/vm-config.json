@@ -1,0 +1,19 @@
+{
+  "winSvr2022": {
+    "imageReference": {
+      "publisher": "MicrosoftWindowsServer",
+      "Offer": "WindowsServer",
+      "sku": "2022-datacenter-azure-edition",
+      "version": "latest"
+    },
+    "VMSku": {
+      "size": "Standard_DS1_v2"
+    },
+    "licenseType": "Windows_Server",
+    "patchMode": "AutomaticByPlatform",
+    "OS": "Windows",
+    "OSDiskGB": 127,
+    "RoleExtensions": {
+    }
+  }
+}
