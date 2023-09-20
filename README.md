@@ -14,7 +14,7 @@ If you find this repository useful, please save the repository by Starring ⭐
 
 2. Install the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
 
-3. To test, deploy (resources to Azure) and debug Bicep files: 
+3. To test, deploy (resources to Azure) and debug Bicep files:
     - Install [AzureCLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli) or
     - [Azure PowerShell](https://learn.microsoft.com/en-us/powershell/azure/install-azure-powershell?view=azps-10.3.0) (must install [Bicep manually](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#install-manually) if you want to use with PowerShell)
 
@@ -22,7 +22,7 @@ If you find this repository useful, please save the repository by Starring ⭐
 
 5. In your forked repository, click the green Code and Open with VisualStudio for a quick start
 
-6. Read the README files for further information and deployment commands to test 
+6. Read the README files for further information and deployment commands to test
 
 ## 🧪 About the project
 
