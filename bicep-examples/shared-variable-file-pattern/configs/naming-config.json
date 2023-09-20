@@ -1,0 +1,13 @@
+{
+    "virtualMachinePrefix": "vm-prod",
+    "webAppPrefix": "app-prod",
+    "functionPrefix": "func",
+    "sqlPrefix": "sqldb-prod",
+    "storagePrefix": "st",
+    "vnetPrefix": "vnet",
+    "subnetPrefix": "snet",
+    "nicPrefix": "nic",
+    "pipPrefix": "pip",
+    "nsgPrefix": "nsg",
+    "routeTablePrefix": "route"
+}

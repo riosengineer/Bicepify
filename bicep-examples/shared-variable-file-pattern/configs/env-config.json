@@ -1,0 +1,26 @@
+{
+  "primary": {
+    "name": "UK South",
+    "location": "uksouth",
+    "lprefix": "uks",
+    "prefix": "prd",
+    "rgsuffix": "prod-rg",
+    "env": "prod"
+  },
+  "dr": {
+    "name": "UK West",
+    "location": "ukwest",
+    "lprefix": "ukw",
+    "prefix": "dr",
+    "rgsuffix": "dr-rg",
+    "env": "dr"
+  },
+  "dev": {
+    "name": "UK South",
+    "location": "uksouth",
+    "lprefix": "uks",
+    "prefix": "dev",
+    "rgsuffix": "dev-rg",
+    "env": "dev"
+  }
+}
