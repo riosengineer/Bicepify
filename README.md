@@ -4,9 +4,10 @@ Bicepify is a sample code repository project with a mission to simplify getting 
 
 We aim to do this by creating real example templates that are easy to digest and break down Azure Bicep concepts, with straight to the point explanations to jump start your Bicep journey 🚀
 
-If you find this repository useful, please save the repository by Starring ⭐
+If you find this repository useful, please save the repository by hitting the ⭐
 
-![Contributors](https://img.shields.io/github/contributors/RiosEngineer/Bicepify?color=dark-green) ![Static Badge](https://img.shields.io/badge/Bicepify-link-blue?logoColor=-blue&link=https%3A%2F%2Fgithub.com%2Friosengineer%2FBicepify) ![License](https://img.shields.io/github/license/ShaanCoding/ReadME-Generator)
+[![MegaLinter](https://github.com/riosengineer/Bicepify/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/riosengineer/Bicepify/actions/workflows/mega-linter.yml) ![Contributors](https://img.shields.io/github/contributors/RiosEngineer/Bicepify?color=dark-green) ![GitHub Repo stars](https://img.shields.io/github/stars/riosengineer/bicepify)
+![Static Badge](https://img.shields.io/badge/Bicep-Learning-blue?logo=microsoftazure&color=%230078D4) ![Static Badge](https://img.shields.io/badge/Bicep-DevOps-blue?logo=azuredevops&color=%230078D4)
 
 ## 🧬 New to Bicep? Getting started
 
@@ -34,7 +35,7 @@ This is where we hope to bridge the gap for new Bicep users getting started, or 
 
 Using simple templated examples, with test data, the examples in this repository we hope will enable others to learn and benefit from.
 
-Within the `bicep-examples` or `bicep-cicd-examples` folders you will find categorised concept folders that further contain example `.bicep` templates and their supporting documentation & files.
+Within the `\bicep-examples` or `\bicep-cicd-examples` folders you will find categorised concept folders that further contain example `.bicep` templates and their supporting documentation & files.
 
 These will showcase a particular Bicep concept with a corresponding README file to give an explanation of what the example is, and how it can benefit.
 
