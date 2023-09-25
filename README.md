@@ -7,8 +7,7 @@ We aim to do this by creating real example templates that are easy to digest and
 If you find this repository useful, please save the repository by hitting the ⭐
 
 [![MegaLinter](https://github.com/riosengineer/Bicepify/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/riosengineer/Bicepify/actions/workflows/mega-linter.yml) ![Contributors](https://img.shields.io/github/contributors/RiosEngineer/Bicepify?color=dark-green) ![GitHub Repo stars](https://img.shields.io/github/stars/riosengineer/bicepify)
-![Static Badge](https://img.shields.io/badge/Bicep-Learning-blue?logo=microsoftazure&color=%230078D4&link=https%3A%2F%2Fgithub.com%2Friosengineer%2FBicepify%2Ftree%2Fmain%2Fbicep-examples) ![Static Badge](https://img.shields.io/badge/Bicep-Azure_DevOps-blue?logo=azuredevops&color=%230078D4&link=https%3A%2F%2Fgithub.com%2Friosengineer%2FBicepify%2Ftree%2Fmain%2Fbicep-cicd-examples) ![Static Badge](https://img.shields.io/badge/Bicep-GitHub%20Actions-blue?logo=GitHubActions&logoColor=white&color=%230078D4&link=https%3A%2F%2Fgithub.com%2Friosengineer%2FBicepify%2Ftree%2Fmain%2Fbicep-cicd-examples)
-
+![Static Badge](https://img.shields.io/badge/Bicep-Learning-blue?logo=microsoftazure&color=%230078D4) ![Static Badge](https://img.shields.io/badge/Bicep-Azure_DevOps-blue?logo=azuredevops&color=%230078D4) ![Static Badge](https://img.shields.io/badge/Bicep-GitHub%20Actions-blue?logo=GitHub&color=%230078D4)
 
 ## 🧬 New to Bicep? Getting started
 
