@@ -1,0 +1,16 @@
+
+trigger: none
+name: $(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
+pool:
+  vmImage: "ubuntu-latest"
+
+jobs:
+- job: 'PSRuleAnalysis'
+  displayName: "Run PSRule analysis"
+  steps:
+  - task: bewhite.ps-rule.assert.ps-rule-assert@2
+    inputs:
+      source: "$(System.DefaultWorkingDirectory)/ps-rule.yaml"
+      modules: PSRule.Rules.Azure, PSRule.Rules.CAF, PSRule.Rules.Kubernetes
+      outputFormat: Sarif
+      outputPath: "reports/ps-rule-results.sarif"
