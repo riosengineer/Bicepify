@@ -1,0 +1,41 @@
+configuration:
+  # Enable automatic expansion of bicep source files.
+  AZURE_BICEP_FILE_EXPANSION: true
+  # Enable automatic expansion of param files
+  AZURE_PARAMETER_FILE_EXPANSION: true
+
+execution:
+  # Ignore warnings for resources and objects that don't have any rules.
+  unprocessedObject: Ignore
+
+input:
+  pathIgnore:
+  # Ignore common files that don't need analysis.
+  - "**/bicepconfig.json"
+  - "*.yaml"
+  - "*.yml"
+  - "*.md"
+  - "*.ps1"
+
+  # Exclude Bicep module files.
+  - "bicep/modules/**/*.bicep"
+
+  # Exclude JSON module files.
+  - "bicep/modules/**/*.json"
+
+  # Include bicep files from modules.
+  - "!bicep/modules/**/.tests/*.bicep"
+
+include:
+  module:
+  - PSRule.Rules.Azure
+  - PSRule.Rules.CAF
+  - PSRule.Rules.Kubernetes
+
+rule:
+  exclude:
+  # Ignore the following rules for all objects
+  - Azure.Resource.UseTags
+
+output:
+  culture: ["en-GB"]

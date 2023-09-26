@@ -1,0 +1,5 @@
+{
+    "itemDisplayName": "Storage Account Module.",
+    "description": "Storage Account Bicep Module",
+    "summary": "Storage Account Bicep standard for deployments"
+}
