@@ -10,7 +10,7 @@ module public_registry 'br/public:compute/function-app:2.0.1' = {
 }
 
 // Rios Engineer - Private Bicep Registry Example
-module private_registry 'br:crbicepprod.azurecr.io/bicep/modules/logging:2023-09-29' = {
+module private_registry 'br:bicepify.azurecr.io/bicep/modules/logging:2023-09-29' = {
   name: 'private_registry_example'
   params: {
     parLogAnalyticsWorkspaceLocation: 'uksouth'
@@ -31,7 +31,6 @@ module private_registry 'br:crbicepprod.azurecr.io/bicep/modules/logging:2023-09
     ]
     parAutomationAccountName: 'example-uks-aa-prod'
     parAutomationAccountUseManagedIdentity: true
-    parTelemetryOptOut: false
     parTags: {
       Env: 'Example'
     }
