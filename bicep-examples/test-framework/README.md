@@ -24,15 +24,15 @@ I'd recommend reading the blog post above to gain a deeper insight.
 
 ## Assertion
 
-Within your `main.bicep` file we are able to create an `assertion` statement. This consists of an `assert` keyword syntax and the assertion must be `Boolean` which means the return values can only be a true or false.
+Within your `main.bicep` file we are able to create an `assertion` statement. This consists of an `assert` keyword syntax and the assertion must be `Boolean` which means the return values can only be true or false.
 
-In the example `main.bicep`, we can see the `locationUk` assert statement is used to calculate if the region contains the keyword `uk` therefore, matching UK South or UK West Azure regions in a true or false return for the regions that do not include the contains statement.
+In the example `main.bicep`, we can see the `locationUk` assert statement is used to calculate if the region contains the keyword `uk` therefore, matching UK South or UK West Azure regions. Because this assertion will be returning a true or false value we can then leverage the output of this for the test block within the test file.
 
 ## Test Framework
 
 For the testing file we're able to draw on our assertion statements to conclude if they match the parameter values that we want to validate with from their true or false statements.
 
-In the example we can see a successful test block and a failure test block for demostatration purposes. 
+In the example we can see a successful test block and a failure test block for demostatration purposes.
 
 If we are to try and deploy a resource in the `northeurope` region the test block would validate that it does not match the boolen true/false statement from the assertion and fail the test.
 
