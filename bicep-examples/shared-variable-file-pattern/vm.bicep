@@ -1,6 +1,6 @@
 // Rios Engineer - Shared variable patterns
 @description('Global VM JSON config file.')
-var compute = loadJsonContent('./configs/vm-config.json')
+var compute = loadJsonContent('./configs/vm-config.json', 'winSvr2022')
 
 @description('Naming standards prefix JSON config file. Loads prefixes for Azure resources using {$namingPrefixes.Name}.')
 var naming = loadJsonContent('./configs/naming-config.json')
@@ -9,8 +9,8 @@ var naming = loadJsonContent('./configs/naming-config.json')
 param location string = resourceGroup().location
 
 // Windows Global Config
-var image = compute.winSvr2022.imageReference
-var sku = compute.winSvr2022.VMSku.size
+var image = compute.imageReference
+var sku = compute.VMSku.size
 
 // Naming standards
 var vmPrefix = naming.virtualMachinePrefix
