@@ -6,7 +6,7 @@
 
 In this example you can get some insight on how to:
 
-- Structure your Git repository FOR Bicep modules
+- Structure your Git repository with Bicep modules
 - How to create a 'test' file to scan PSRule with
 - How you can create documentation for your Bicep modules
 - Why you should consider testing in this method vs scanning your templates directly
