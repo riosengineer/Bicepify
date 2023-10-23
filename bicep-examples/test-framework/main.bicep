@@ -1,7 +1,10 @@
 // Rios Engineer - Bicep Test Framework
 targetScope = 'resourceGroup'
 
+@description('Deployment location for resources.')
 param location string
+
+@description('Storage account resource SKU.')
 param kind string
 
 // Storage Account

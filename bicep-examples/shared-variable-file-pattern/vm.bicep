@@ -30,13 +30,13 @@ param adminUsername string
 @minLength(12)
 @secure()
 param adminPassword string
-
 /*
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2020-06-01' existing = {
   name: 'vnet-prod-uks-001'
 
 }*/
 
+// add your own demo virtual network and subnet here 
 resource subnet 'Microsoft.Network/virtualNetworks/subnets@2020-06-01' existing = {
   name: 'vnet-prod-uks-001/snet-rios-demo' 
 }
