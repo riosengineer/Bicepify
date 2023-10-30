@@ -2,7 +2,7 @@
 
 ## Introduction
 
-One of the drawbacks seen with Bicep vs other declarative languages like Terraform is that we have scoped deployments. This refers to different target scopes for the resources which consists of:
+One of the potential drawbacks seen with Bicep vs other declarative languages like Terraform is that we have scoped deployments. This refers to different target scopes for the resources which consists of:
 
 - resourceGroup (Default target)
 - subscription
@@ -17,7 +17,7 @@ This can potentially be slightly confusing when starting out.
 
 For example, do you have separate files for each scope or is there other ways to structure our Bicep file to accommodate multiple deployment scopes under one roof? Lets take a look.
 
-## Problem statement and benefits
+## Benefits of using combined scopes
 
 With the above in mind, we may think we have to split out our files to target different scopes and deploy these independently. However, there are some ways around this which can be leveraged.
 
