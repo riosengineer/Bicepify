@@ -2,22 +2,26 @@
 
 ## Introduction
 
-One of the drawbacks seen with Bicep vs other declarative languages like Terraform is that you have scoped deployments. This refers to different target scopes for the resources which consists of:
+One of the drawbacks seen with Bicep vs other declarative languages like Terraform is that we have scoped deployments. This refers to different target scopes for the resources which consists of:
 
 - resourceGroup (Default target)
 - subscription
 - managementGroup
 - tenant
 
-Whereas the likes of Terraform does not have this concept so it is not a concern when building your code.
+Whereas the likes of Terraform does not have this concept so it is not a concern when building our code.
 
-In Bicep, you have to declare your `targetScope` in the file for deployment of the resources. You can't deploy a management group in a file that is also targeting resourceGroup scope, without defining the `scope:` property on every block.
+In Bicep, we have to declare our `targetScope` in the file for deployment of the resources. We can't deploy a management group in a Bicep file that has a resource group code due to the differences in target scopes.
+
+This can potentially be slightly confusing when starting out.
+
+For example, do you have separate files for each scope or is there other ways to structure our Bicep file to accommodate multiple deployment scopes under one roof? Lets take a look.
 
 ## Problem statement and benefits
 
-With this in mind, you may have to split out your files to target different scopes and deploy these independently.
+With the above in mind, we may think we have to split out our files to target different scopes and deploy these independently. However, there are some ways around this which can be leveraged.
 
-For example, you can use a subscription `targetScope` to also deploy resourceGroup scope deployments within the same file. This has some major benefits:
+For example, we can use a subscription `targetScope` to also deploy resourceGroup scope deployments within the same file. This has some major benefits:
 
 1. Streamlines deployments: can now combine subscription and resourceGroup Bicep code in one file for example
 
@@ -72,7 +76,7 @@ CLI
 
 ```bash
 az login
-az set --subscription 'your subscription name'
+az set --subscription 'our subscription name'
 az deployment sub create --confirm-with-what-if -l 'uksouth' -f .\file.bicep 
 ```
 
@@ -80,6 +84,6 @@ or PowerShell
 
 ```powershell
 Connect-AzAccount
-Set-AzContext -Subsription "your subsription name"
+Set-AzContext -Subscription "our subscription name"
 New-AzDeployment -Confirm -Location "UKSouth" -TemplateFile "file.bicep"
 ```
