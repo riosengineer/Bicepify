@@ -1,8 +1,11 @@
-# Resource dependencies in Azure Bicep
+# Resource dependencies in Azure Bicep 🦾
 
 There's two types of dependencies `implicit` and `explicit` in Azure Bicep. Within the `main.bicep` file example you'll notice many implicit and some explicit dependencies that you can review as a real example of how these two play a role in your Azure Bicep deployments.
 
-## Implicit
+> [!TIP]
+> If you're interested in this example solution and what it does then there is more information in this template repo [here](https://github.com/riosengineer/bicep-quickstart-frontdoor-private-endpoint-appservice) with supporting documentation.
+
+## Implicit 🔗
 
 With `implicit` dependencies we are referencing another Azure resource within the same deployment, which means we'll not need to declare an explicit dependency. There are two common ways this is accomplished. For example:
 
@@ -42,7 +45,7 @@ resource frontDoorOriginGroup 'Microsoft.Cdn/profiles/originGroups@2021-06-01' =
 
 Lastly, notice the `parent:` property defined in this Azure Front Door resource block, where it's defining the symbolic name from the Azure CDN profile object. This is also an implicit dependency created between the two objects.
 
-## Explicit
+## Explicit 🖇️
 
 ```javascript
 resource frontDoorProfile 'Microsoft.Cdn/profiles@2021-06-01' = {
@@ -62,7 +65,7 @@ For explicit dependencies, we can use the `dependsOn` property to describe expli
 
 In the case above, I don't want my Front Door deployment to start before the App service and App Plan have been deployed first, as I need them to exist for my origin backend.
 
-## Deployment
+## Deployment 🚀
 
 > [!WARNING]  
 > This example deploys Azure Front Door Premium SKU which is circa $300 for the month. Do not leave running if you don't want to incur charges. Make sure to delete after deployment and you'll likely see next to no charges for doing this test deploy.
