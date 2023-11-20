@@ -50,7 +50,6 @@ jobs:
         # ADD YOUR CUSTOM ENV VARIABLES HERE OR DEFINE THEM IN A FILE .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
         DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
         DISABLE_LINTERS: YAML_V8R,YAML_YAMLLINT,YAML_PRETTIER,REPOSITORY_CHECKOV,POWERSHELL_POWERSHELL
-        REPOSITORY_GITLEAKS_PR_COMMITS_SCAN: true
 
     # Upload MegaLinter artifacts
     - name: Archive production artifacts
