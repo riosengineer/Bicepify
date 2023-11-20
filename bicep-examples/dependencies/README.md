@@ -3,7 +3,7 @@
 There's two types of dependencies `implicit` and `explicit` in Azure Bicep. Within the `main.bicep` file example you'll notice many implicit and some explicit dependencies that you can review as a real example of how these two play a role in your Azure Bicep deployments.
 
 > [!TIP]
-> If you're interested in this examples solution and what it does then there is more information in this template repo [here](https://github.com/riosengineer/bicep-quickstart-frontdoor-private-endpoint-appservice) with supporting documentation and architectural drawing.
+> If you're interested in the example solution and what it does then there is more information in this template repo [here](https://github.com/riosengineer/bicep-quickstart-frontdoor-private-endpoint-appservice) with supporting documentation and architectural drawing.
 
 ## Implicit 🔗
 
@@ -22,7 +22,7 @@ module appInsights 'modules/appInsights/appinsights.bicep' = {
 }
 ```
 
-Note the `logAnalytics.outputs.id` symbolic name defined is referencing a previous module for this resources properties. This is how an implicit dependency is created and ARM will deploy in resources in their dependent order.
+Note the `logAnalytics.outputs.id` defined is referencing a previous module for this resource properties. This is how an implicit dependency is created and ARM will then deploy resources in their dependent order.
 
 ```javascript
 resource frontDoorOriginGroup 'Microsoft.Cdn/profiles/originGroups@2021-06-01' = {
@@ -63,7 +63,7 @@ resource frontDoorProfile 'Microsoft.Cdn/profiles@2021-06-01' = {
 
 For explicit dependencies, we can use the `dependsOn` property to describe explicitly which resources we want this deployment to depend on.
 
-In the case above, I don't want my Front Door deployment to start before the App service and App Plan have been deployed first, as I need them to exist for my origin backend.
+In the case above, I don't want my Front Door deployment to start before the App service and App Plan have been deployed first, as I need them to exist for my origin backend in Front Door.
 
 ## Deployment 🚀
 
