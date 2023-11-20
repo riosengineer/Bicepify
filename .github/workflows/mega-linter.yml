@@ -51,6 +51,7 @@ jobs:
         DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
         DISABLE_LINTERS: YAML_V8R,YAML_YAMLLINT,YAML_PRETTIER,REPOSITORY_CHECKOV,POWERSHELL_POWERSHELL,ACTION_ACTIONLINT
         REPOSITORY_KICS_DISABLE_ERRORS: true
+        REPOSITORY_GITLEAKS_PR_COMMITS_SCAN: true
 
     # Upload MegaLinter artifacts
     - name: Archive production artifacts
