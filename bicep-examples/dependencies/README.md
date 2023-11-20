@@ -3,7 +3,7 @@
 There's two types of dependencies `implicit` and `explicit` in Azure Bicep. Within the `main.bicep` file example you'll notice many implicit and some explicit dependencies that you can review as a real example of how these two play a role in your Azure Bicep deployments.
 
 > [!TIP]
-> If you're interested in this example solution and what it does then there is more information in this template repo [here](https://github.com/riosengineer/bicep-quickstart-frontdoor-private-endpoint-appservice) with supporting documentation.
+> If you're interested in this examples solution and what it does then there is more information in this template repo [here](https://github.com/riosengineer/bicep-quickstart-frontdoor-private-endpoint-appservice) with supporting documentation and architectural drawing.
 
 ## Implicit 🔗
 
