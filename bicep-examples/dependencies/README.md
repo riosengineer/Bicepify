@@ -43,7 +43,7 @@ resource frontDoorOriginGroup 'Microsoft.Cdn/profiles/originGroups@2021-06-01' =
 }
 ```
 
-Lastly, notice the `parent:` property defined in this Azure Front Door resource block, where it's defining the symbolic name from the Azure CDN profile object. This is also an implicit dependency created between the two objects.
+Lastly, notice the `parent:` property defined in this Azure Front Door resource block above, where it's defining the symbolic name from the Azure CDN profile object. This is also an implicit dependency created between the two objects.
 
 ## Explicit 🖇️
 
@@ -68,7 +68,9 @@ In the case above, I don't want my Front Door deployment to start before the App
 ## Deployment 🚀
 
 > [!WARNING]  
-> This example deploys Azure Front Door Premium SKU which is circa $300 for the month. Do not leave running if you don't want to incur charges. Make sure to delete after deployment and you'll likely see next to no charges for doing this test deploy.
+> This example deploys Azure Front Door Premium SKU which is circa $300 for the month. Do not leave running if you don't want to incur charges. Make sure to delete as soon as possible after deployment and you'll likely see very minimal costs.
+
+Define the parameters in the top of the file before deploying.
 
 In VisualStudio Code open a terminal and run:
 
