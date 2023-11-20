@@ -59,6 +59,8 @@ Where possible, examples will be complimented by a blog post giving a deeper div
 
 [Awesome Azure Bicep list](https://github.com/ElYusubov/AWESOME-Azure-Bicep)
 
+[Azure Bicep Cheat Sheet](https://github.com/johnlokerse/azure-bicep-cheat-sheet)
+
 ## 🖌️ Authors
 
 - [Rios Engineer](https://www.github.com/riosengineer)

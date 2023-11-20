@@ -358,7 +358,7 @@ resource app_roleAssignments 'Microsoft.Authorization/roleAssignments@2022-04-01
   scope: app
 }]
 
-module app_privateEndpoints '../../network/private-endpoint/main.bicep' = [for (privateEndpoint, index) in (privateEndpoints ?? []): {
+module app_privateEndpoints '../../privateEndpoint/privateEndpoint.bicep' = [for (privateEndpoint, index) in (privateEndpoints ?? []): {
   name: '${uniqueString(deployment().name, location)}-app-PrivateEndpoint-${index}'
   params: {
     groupIds: [
