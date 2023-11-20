@@ -293,6 +293,7 @@ module app_slots './site/slot/main.bicep' = [for (slot, index) in slots: {
 module app_basicPublishingCredentialsPolicies './site/basic-publishing-credentials-policy/main.bicep' = [for (basicPublishingCredentialsPolicy, index) in basicPublishingCredentialsPolicies: {
   name: '${uniqueString(deployment().name, location)}-Site-Publis-Cred-${index}'
   params: {
+    location: location
     webAppName: app.name
     name: basicPublishingCredentialsPolicy.name
     enableDefaultTelemetry: enableReferencedModulesTelemetry
