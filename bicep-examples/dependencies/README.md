@@ -61,7 +61,7 @@ resource frontDoorProfile 'Microsoft.Cdn/profiles@2021-06-01' = {
 }
 ```
 
-For explicit dependencies, we can use the `dependsOn` property to describe explicitly which resources we want this deployment to depend on.
+For explicit dependencies, we can use the `dependsOn` property to describe explicitly which resources we want this deployment to depend on. You don't need to, and shouldn't add an implicit and explicit dependency in the same resource, it's a one or the other use case.
 
 In the case above, I don't want my Front Door deployment to start before the App service and App Plan have been deployed first, as I need them to exist for my origin backend in Front Door.
 
