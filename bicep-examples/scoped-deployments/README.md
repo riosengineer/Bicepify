@@ -31,6 +31,9 @@ For example, we can use a subscription `targetScope` to also deploy resourceGrou
 
 Using this concept, we can also do a similar approach with managementGroup scope and using `scope: subscription(subId, rg)` for an existing subscription id and resource group name and corresponding Azure CLI cmdlets.
 
+> [!TIP]
+> This concept only works with Bicep modules
+
 ## Subscription scope example
 
 In the example `subscription-scope.bicep` we're able to use the `scope: rg_deploy` to specify a resource block name to associate it with where we want to deploy the Storage Account.
