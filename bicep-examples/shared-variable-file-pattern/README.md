@@ -1,6 +1,6 @@
 # Using shared variable file pattern in Azure Bicep - Examples
 
-## [Blog post](https://rios.engineer/harness-shared-variable-file-patterns-with-azure-bicep)
+## [Blog post](https://rios.engineer/harness-shared-variable-file-patterns-with-bicep/)
 
 Building on the Microsoft Documentation on this I've expanded and created some more examples where this can be useful for you or your organisation. I've broken these down into three example chunks. I would advise first going over the documentation to familiarise yourself with the concept here:
 
@@ -18,7 +18,7 @@ CLI
 
 ```bash
 az login
-az set --subscription 'your subscription name'
+az account set --subscription 'your subscription name'
 az deployment create --confirm-with-what-if -g 'your resource group name' -f .\file.bicep 
 ```
 
@@ -26,7 +26,7 @@ or PowerShell
 
 ```powershell
 Connect-AzAccount
-Set-AzContext -Subsription "your subsription name"
+Set-AzContext -Subscription "your subscription name"
 New-AzResourceGroupDeployment -Confirm -ResourceGroup "your resource group name" -TemplateFile "file.bicep"
 ```
 

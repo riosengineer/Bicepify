@@ -24,7 +24,7 @@ module public_registry 'br/public:compute/function-app:2.0.1' = {
 }
 ```
 
-## Prviate Registry
+## Private Registry
 
 Creating your own Azure Container Registry can be a great way to consume Bicep modules for internal use only.
 
@@ -89,7 +89,7 @@ module inline_module 'modules/inline/customModule.bicep' = {
 }
 ```
 
-## Azure Verified Modules
+## Azure Verified Modules / Azure Bicep Public Registry
 
 [AVM](https://azure.github.io/Azure-Verified-Modules/faq/#what-is-happening-to-existing-initiatives-like-carml-and-tfvm)
 
