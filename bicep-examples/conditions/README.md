@@ -15,7 +15,7 @@ This example will showcase conditional resource deployments with Azure Bicep. Th
 > [!WARNING]  
 > There are some limitations with (if) conditions, these are highlighted in the Microsoft documentation linked above.
 
-## Examples
+## ⚗️ Examples
 
 ### If condition
 
