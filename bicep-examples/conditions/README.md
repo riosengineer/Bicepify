@@ -12,6 +12,9 @@ This example will showcase conditional resource deployments with Azure Bicep. Th
 
 3. ✅ Flexible Bicep template. By adding conditions we're able to increase the reusability and flexibility of a Bicep template based on specific constraints.
 
+> [!WARNING]  
+> There are some limitations with (if) conditions, these are highlighted in the Microsoft documentation linked above.
+
 ## Examples
 
 ### If condition
@@ -37,7 +40,7 @@ name: '${uniqueString(deployment().name, location)}-${kvName}'
 
 ### If/else condition
 
-Using an if/else condition can be useful to determine if we need to deploy a different SKU tier depending on requirements, such as production vs dev.
+Using an if/else condition can be useful to determine if we need to deploy to a different SKU tier depending on requirements, such as production vs dev. However, it is not limited to this scenario. It can be used for any values that fit your deployment constraints.
 
 By specifying a variable called `kvSku` we're able to evaluate the parameter `kvEnv` to check if this contains `prod` then set the Key Vault SKU to `premium` else, set to `standard`. Later in the Key Vault module block the `skuName: kvSku` is how this is assigned within the module.
 
