@@ -2,9 +2,9 @@
 
 ## Introduction
 
-For loops in Azure Bicep can be a great way to simplify and minimise your Bicep templates, as they allow you to define multiple copies of a resource which helps reduce and avoids us repeating code in our Bicep templates. 
+For loops in Azure Bicep can be a great way to simplify and minimise your Bicep templates, as they allow you to define multiple copies of a resource which helps reduce and avoids us repeating code in our Bicep templates.
 
-Using a for loop, you can quickly deploy multiple resources, in this instance a virtual network resource with multiple subnets in one block. 
+Using a for loop, you can quickly deploy multiple resources, in this instance a virtual network resource with multiple subnets in one block.
 
 You can go through the Microsoft Learn training module for this which is great [here](https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/).
 
