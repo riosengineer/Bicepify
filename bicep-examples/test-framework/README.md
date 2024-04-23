@@ -32,15 +32,15 @@ In the example `main.bicep`, we can see the `locationUk` assert statement is use
 
 For the testing file we're able to draw on our assertion statements to conclude if they match the parameter values that we want to validate with from their true or false statements.
 
-In the example we can see a successful test block and a failure test block for demostatration purposes.
+In the example we can see a successful test block and a failure test block for demonstration purposes.
 
-If we are to try and deploy a resource in the `northeurope` region the test block would validate that it does not match the boolen true/false statement from the assertion and fail the test.
+If we are to try and deploy a resource in the `northeurope` region the test block would validate that it does not match the boolean true/false statement from the assertion and fail the test.
 
 ## 💡 How to get started
 
 Make sure your Azure Bicep version is up to date.
 
-Azure CLI (recomended approach as Bicep CLI is built-in):
+Azure CLI (recommended approach as Bicep CLI is built-in):
 
 ```bash
 az bicep upgrade

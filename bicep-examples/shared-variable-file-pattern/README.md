@@ -4,7 +4,7 @@
 
 Building on the Microsoft Documentation on this I've expanded and created some more examples where this can be useful for you or your organisation. I've broken these down into three example chunks. I would advise first going over the documentation to familiarise yourself with the concept here:
 
- [MS Learn - Shared variable file pattern](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/patterns-shared-variable-file)
+ [MS Learn - Shared variable file pattern](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/patterns-shared-variable-file?WT.mc_id=MVP_319025)
 
  Each example should be simple to understand and translate to real world scenarios these could help you with.
 
