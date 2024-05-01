@@ -18,7 +18,7 @@ You can go through the Microsoft Learn training module for this which is great [
 
 ## For Loop Example
 
-In the basic example within the `main.bicep` file, we can using the `for` property to state for each `vnet` resource, loop through and create the virtual network with subnets.
+In the basic example within the `main.bicep` file, we can use the `for` property to state for each `vnet` resource, loop through and create the virtual network with subnets.
 
 As the variable (refer to the `main.bicep` file) also contains the required subnets, we're further looping the sub-property within the `vnet` to loop for each `subnet` within the `vnet` as it deploys.
 
