@@ -22,21 +22,21 @@ In the first example within the `main.bicep` file, there is a `map` expression f
 
 In the second example within the `main.bicep` file, there is a `filter` expression from an array output. This enables you to manipulate the array and filter the output using the `filter` expression to only show those that match your expression statement in the output.
 
-Map
+#### Map
 
 ```javascript
 @description('Output all Key Vault names from the loop using a map function expression.')
 output keyVaultNames array = map(keyVaults, keyvault => keyvault.outputs.name)
 ```
 
-Filter
+#### Filter
 
 ```javascript
 @description('Output all Key Vaults with premium SKUs that have soft delete disabled.')
 output kvFilter array = filter(kvProperties, kv => kv.sku == 'premium' && kv.softdelete == 'true')
 ```
 
-Output example
+#### Output example
 
 ```json
     "outputs": {
