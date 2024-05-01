@@ -36,6 +36,43 @@ Filter
 output kvFilter array = filter(kvProperties, kv => kv.sku == 'premium' && kv.softdelete == 'true')
 ```
 
+Output example
+
+```json
+    "outputs": {
+      "keyVaultNames": {
+        "type": "Array",
+        "value": [
+          "kv-0-7jf67vploiowy",
+          "kv-1-7jf67vploiowy",
+          "kv-2-7jf67vploiowy",
+          "kv-3-7jf67vploiowy",
+          "kv-4-7jf67vploiowy",
+          "kv-5-7jf67vploiowy",
+          "kv-6-7jf67vploiowy",
+          "kv-7-7jf67vploiowy",
+          "kv-8-7jf67vploiowy",
+          "kv-9-7jf67vploiowy"
+        ]
+      },
+      "kvFilter": {
+        "type": "Array",
+        "value": [
+          {
+            "keyvaultName": "kv-of3g6trcnh2ak",
+            "sku": "premium",
+            "softdelete": "true"
+          },
+          {
+            "keyvaultName": "kv-of3g6trcnh2ak",
+            "sku": "premium",
+            "softdelete": "true"
+          }
+        ]
+      }
+    },
+```
+
 ## 🚀 Deployment
 
 > [!NOTE]  
