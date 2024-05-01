@@ -11,7 +11,7 @@ param location string = 'uksouth'
 module keyVaults 'br/public:avm/res/key-vault/vault:0.4.0' = [ for i in range(0,10):  {
   name: 'kvdeploy-${i}${uniqueString(resourceGroup().id)}'
   params: {
-    name: 'keyv-${i}-${uniqueString(subscription().id)}'
+    name: 'kv-${i}-${uniqueString(subscription().id)}'
     location: location
     sku: 'standard'
   }
@@ -23,22 +23,22 @@ output keyVaultNames array = map(keyVaults, keyvault => keyvault.outputs.name)
 // filter function
 var kvProperties = [
   {
-    keyvaultName: 'keyvault-0-1234567890'
+    keyvaultName: 'kv-${uniqueString(resourceGroup().id)}'
     sku: 'standard'
     softdelete: 'true'
   }
   {
-    keyvaultName: 'keyvault-1-1234567890'
+    keyvaultName: 'kv-${uniqueString(resourceGroup().id)}'
     sku: 'premium'
     softdelete: 'true'
   }
   {
-    keyvaultName: 'keyvault-2-1234567890'
+    keyvaultName: 'kv-${uniqueString(resourceGroup().id)}'
     sku: 'premium'
     softdelete: 'true'
   }
   {
-    keyvaultName: 'keyvault-3-1234567890'
+    keyvaultName: 'kv-${uniqueString(resourceGroup().id)}'
     sku: 'premium'
     softdelete: 'false'
     purge: 'off'
