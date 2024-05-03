@@ -19,7 +19,7 @@ If you find this repository useful, please save the repository by hitting the тн
     - Install [AzureCLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli) **[recommended method]** or
     - [Azure PowerShell](https://learn.microsoft.com/en-us/powershell/azure/install-azure-powershell?view=azps-10.3.0) (must install [Bicep manually](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#install-manually) if you want to use with PowerShell)
 
-4. [Fork](https://github.com/riosengineer/Bicepify/fork) this repository so you have a copy to lab with our examples
+4. [Fork](https://github.com/riosengineer/Bicepify/fork) this repository so you have a copy to lab with the examples
 
 5. In your forked repository, click the green Code and Open with VisualStudio for a quick start
 
