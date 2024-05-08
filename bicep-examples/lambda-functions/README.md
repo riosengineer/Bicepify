@@ -6,7 +6,7 @@ Lambda Functions in Azure Bicep can be a good way to create an argument based on
 
 This can be useful when wanting to output an array of Azure resource names for example. This example will be expanded over time to include more real world use cases.
 
-However, it is worth noting there are some [limitations](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-lambda?WT.mc_id=MVP_319025#limitations) with lambda functions.
+It is worth noting there are some [limitations](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-lambda?WT.mc_id=MVP_319025#limitations) with lambda functions.
 
 You can read more from the official Microsoft Learn documentation on Lambda Functions [here](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-lambda?WT.mc_id=MVP_319025).
 
@@ -18,7 +18,7 @@ You can read more from the official Microsoft Learn documentation on Lambda Func
 
 ## Lambda Function Examples
 
-In the first example within the `main.bicep` file, there is a `map` expression from an array output. Using the `map` expression in this example you're able to extrapolate all the Key vault resource names from a loop in the output. 
+In the first example within the `main.bicep` file, there is a `map` expression from an array output. Using the `map` expression you're able to extrapolate all the Key vault resource names from a loop in the output.
 
 In the second example within the `main.bicep` file, there is a `filter` expression from an array output. This enables you to manipulate the array and filter the output using the `filter` expression to only show those that match your expression statement in the output.
 

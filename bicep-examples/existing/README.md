@@ -23,9 +23,9 @@ In this example, we are referencing two existing Azure resources:
 - Resource Group
 - Log Analytics Workspace
 
-Both of these resources are likely to already existing in your Azure environment. If you're deploying a new resource you may want to put this into an existing resource group, using an existing log analytics workspace that is centralised for all metrics to ingest into. In this example within the `main.bicep` file:
+Both of these resources are likely to already be deployed in your Azure environment. If you're creating a new resource you may want to put this into an existing resource group, using an existing log analytics workspace that is centralised for all metrics to ingest into. In this example within the `main.bicep` file:
 
-We are defining the existing resources to be used in a newly deploy Storage Account.
+We are defining the existing resources to be used in a newly deployed Storage Account.
 
 ```javascript
 module storageAccount 'br/public:avm/res/storage/storage-account:0.8.3' = {
@@ -48,7 +48,7 @@ module storageAccount 'br/public:avm/res/storage/storage-account:0.8.3' = {
 }
 ```
 
-`scope: rg` which is leveraging the existing symbolic name of the existing Resource Group where we have specified the existing `name:` of the Resource Group in the `main.bicep` file.
+`scope: rg` which is leveraging the symbolic name of the existing Resource Group where we have specified the existing `name:` of the Resource Group in the `main.bicep` file.
 
 `workspaceResourceId: law.id` which is referencing the existing Log Analytics Workspace resource to retrieve the `resourceId` property.
 
@@ -57,7 +57,7 @@ Combining these enables a new Storage Account to be created in an existing Resou
 ## 🚀 Deployment
 
 > [!NOTE]  
-> The deployment commands will create the existing resources first before leveraging the Bicep template to utilise these.
+> The deployment commands will create the resources first before leveraging the Bicep template to utilise these as part of the example demo.
 
 In VisualStudio Code open a terminal and run:
 
