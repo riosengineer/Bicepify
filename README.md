@@ -53,9 +53,7 @@ Where possible, examples will be complimented by a blog post giving a deeper div
 
 [Offical Bicep Repository](https://github.com/Azure/bicep)
 
-[Bicep ResourceModule Repository (lots of Bicep modules already authored for your benefit)](https://github.com/Azure/ResourceModules)
-
-[Bicep Public Registry modules Repository](https://github.com/Azure/bicep-registry-modules)
+[Bicep Azure Verified Modules (AVM) Repository](https://github.com/Azure/bicep-registry-modules)
 
 [Awesome Azure Bicep list](https://github.com/ElYusubov/AWESOME-Azure-Bicep)
 
