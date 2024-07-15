@@ -45,6 +45,8 @@ Where possible, examples will be complimented by a blog post giving a deeper div
 
 [Rios Engineer - All Things Azure blog](https://rios.engineer/)
 
+[Azure Bicep Users LinkedIn Group](https://www.linkedin.com/groups/13004126/)
+
 [What is Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 
 [Bicep tools](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install)
