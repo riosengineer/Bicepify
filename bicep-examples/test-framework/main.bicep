@@ -7,10 +7,14 @@ param location string
 @description('Storage account resource SKU.')
 param kind string
 
+@description('Storage account name.')
+param stName string
+
 // Storage Account
-module storage 'br/public:storage/storage-account:3.0.1' = {
+module storage 'br/public:avm/res/storage/storage-account:0.11.1' = {
   name: 'storage_deploy'
   params:{
+    name: stName
     kind: kind
     location: location
   }
