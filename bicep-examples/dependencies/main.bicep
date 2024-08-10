@@ -42,7 +42,7 @@ var frontDoorRouteName = 'webapp-route'
 // Azure App Service components
 
 // vNet for integration
-module vnet 'br/public:network/virtual-network:1.1.3' = {
+module vnet 'br/public:avm/res/network/virtual-network:0.2.0' = {
   name: '${uniqueString(deployment().name, location)}-webVnet'
   scope: resourceGroup(workloadsSubId, rg_web_workload)
   params: {
@@ -68,7 +68,7 @@ module vnet 'br/public:network/virtual-network:1.1.3' = {
 }
 
 // Log Analytics workspace
-module logAnalytics 'br/public:storage/log-analytics-workspace:1.0.3' = {
+module logAnalytics 'br/public:avm/res/operational-insights/workspace:0.5.0' = {
   name: '${uniqueString(deployment().name, location)}-ala'
   scope: resourceGroup(rg_web_workload)
   params: {
@@ -84,7 +84,7 @@ module appInsights 'modules/appInsights/appinsights.bicep' = {
   params: {
     name: appInsightsName
     location: location
-    workspaceResourceId: logAnalytics.outputs.id
+    workspaceResourceId: logAnalytics.outputs.logAnalyticsWorkspaceId
     kind: 'web'
     applicationType: 'web'
   }

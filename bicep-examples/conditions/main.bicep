@@ -24,12 +24,12 @@ param kvEnv string = 'prod'
 // Environment variable for Key Vault SKU else if
 var kvSku = kvEnv == 'prod' ? 'premium' : 'standard'
 
-module KeyVault 'br/public:security/keyvault:1.0.2' = if (deployResource) {
+module KeyVault 'br/public:avm/res/key-vault/vault:0.7.0' = if (deployResource) {
   name: '${uniqueString(deployment().name, location)}-${kvName}'
   params: {
     name: kvName
     location: location
-    skuName: kvSku
+    sku: kvSku
     enableSoftDelete: true
   }
 }

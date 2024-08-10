@@ -1,11 +1,11 @@
-// Rios Engineer - Public Bicep Registry Example
-module public_registry 'br/public:compute/function-app:2.0.1' = {
-  name: 'public_registry_example'
+// Rios Engineer - Public Bicep Registry Example (Azure Verified Modules)
+module KeyVault 'br/public:avm/res/key-vault/vault:0.7.0' = {
+  name: 'avm_exmple'
   params: {
-    name: 'example-func-001'
+    name: 'kvName'
     location: 'uksouth'
-    storageAccountName: 'stsomestorageaccount001'
-    storageAccountResourceGroup: 'rg-some-rg-here'
+    sku: 'standard'
+    enableSoftDelete: true
   }
 }
 

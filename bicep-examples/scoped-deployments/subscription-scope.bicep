@@ -15,7 +15,7 @@ location: location
 
 // Deploy storage account to newly created resource group
 
-module st_deploy 'br/public:storage/storage-account:3.0.1' = {
+module st_deploy 'br/public:avm/res/storage/storage-account:0.11.1' = {
   scope: rg_deploy
   name: 'storageDeployment'
   params:{
@@ -25,7 +25,7 @@ module st_deploy 'br/public:storage/storage-account:3.0.1' = {
 
 // Deploy storage account to existing resource group in a subscription, without changing target scope
 
-module st_deploy2 'br/public:storage/storage-account:3.0.1' = {
+module st_deploy2 'br/public:avm/res/storage/storage-account:0.11.1' = {
   scope: resourceGroup('subscription-guid-here', 'rg-name-here')
   name: 'storageDeployment'
   params:{
