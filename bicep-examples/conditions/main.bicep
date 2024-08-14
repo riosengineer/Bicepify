@@ -10,6 +10,9 @@ param location string = resourceGroup().location
 @description('Azure Key Vault resource names that will be created. Must be globally unique.')
 param kvName string = 'kv-uks-bicepify-prod-001'
 
+@description('Azure Key Vault resource names that will be created. Must be globally unique.')
+param kvName2 string = 'kv-uks-bicepify-prod-002'
+
 @description('Deploy Azure Key Vault true/false.')
 param deployResource bool = false
 
@@ -19,10 +22,10 @@ param deployResource bool = false
   'preprod'
   'dev'
 ])
-param kvEnv string = 'prod'
+param env string = 'prod'
 
 // Environment variable for Key Vault SKU else if
-var kvSku = kvEnv == 'prod' ? 'premium' : 'standard'
+var kvSku = env == 'prod' ? 'premium' : 'standard'
 
 module KeyVault 'br/public:avm/res/key-vault/vault:0.7.0' = if (deployResource) {
   name: '${uniqueString(deployment().name, location)}-${kvName}'
@@ -36,3 +39,17 @@ module KeyVault 'br/public:avm/res/key-vault/vault:0.7.0' = if (deployResource) 
 
 // Output Key Vault name
 output kvUri string = KeyVault.outputs.name
+
+// Multi-enviornment condition  param example
+module KeyVault2 'br/public:avm/res/key-vault/vault:0.6.2' = {
+  name: '${uniqueString(deployment().name, location)}-kv'
+  params: {
+    name: kvName
+    location: location
+    enablePurgeProtection: env == 'preprod' || env == 'prod' ? true : false
+    enableSoftDelete: true
+    softDeleteRetentionInDays: 7
+    enableRbacAuthorization: true
+    sku: kvSku
+  }
+}
