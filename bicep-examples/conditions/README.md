@@ -57,6 +57,14 @@ param kvEnv string = 'prod'
 var kvSku = kvEnv == 'prod' ? 'premium' : 'standard'
 ```
 
+In addition, you can use conditions to determine if certain parameters are true or false depending on the enviornment you are deploying to. For example, in the second Key Vault example within `main.bicep`:
+
+```javascript
+enablePurgeProtection: env == 'preprod' || env == 'prod' ? true : false
+```
+
+Will only enable purge protection on a Key Vault if the enviornment is `preprod` or `prod`. Therefore, if you were deploying the Key Vault to `dev` the Key Vault would not have purge protection enabled. This type of conditon can be expanded to other parameters and objects such as Azure App Service slots, etc. 
+
 ## 🚀 Deployment
 
 > [!NOTE]  
