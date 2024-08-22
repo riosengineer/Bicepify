@@ -44,7 +44,7 @@ output kvUri string = KeyVault.outputs.name
 module KeyVault2 'br/public:avm/res/key-vault/vault:0.6.2' = {
   name: '${uniqueString(deployment().name, location)}-kv'
   params: {
-    name: kvName
+    name: kvName2
     location: location
     enablePurgeProtection: env == 'preprod' || env == 'prod' ? true : false
     enableSoftDelete: true
