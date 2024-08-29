@@ -30,7 +30,7 @@ var kvSku = env == 'prod' ? 'premium' : 'standard'
 module KeyVault 'br/public:avm/res/key-vault/vault:0.7.0' = if (deployResource) {
   name: '${uniqueString(deployment().name, location)}-${kvName}'
   params: {
-    name: kvName
+    name: kvName2
     location: location
     sku: kvSku
     enableSoftDelete: true
