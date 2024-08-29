@@ -1,9 +1,11 @@
 targetScope = 'resourceGroup'
 
+// Metadata
 metadata name = 'Key Vault creation Bicep module'
 metadata description = 'Showcasing Azure Bicep if conditions'
 metadata owner = 'ops@example.com'
 
+// Parameters 
 @description('Azure region for deployments chosen from the resource group.')
 param location string = resourceGroup().location
 

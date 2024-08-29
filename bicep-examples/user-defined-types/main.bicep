@@ -1,7 +1,12 @@
 targetScope = 'resourceGroup'
 
+// Metadata
+metadata name = 'User Defined Types'
+metadata description = 'Showcasing Azure Bicep UDTs'
+metadata owner = 'ops@example.com'
+
 // User Defined Types
-type storageSkuType = 'Standard_LRS' | 'Standard_GRS' | 'Standard_RAGRS' | 'Standard_ZRS' | 'Premium_LRS' | 'Premium_ZRS' | 'Premium_GRS' | 'Premium_RAGRS'
+type storageSkuType = 'Premium_LRS' | 'Premium_ZRS' | 'Standard_GRS' | 'Standard_GZRS' | 'Standard_LRS' | 'Standard_RAGRS' | 'Standard_RAGZRS' | 'Standard_ZRS'
 
 type storageConfType = {
   name: string
@@ -13,6 +18,7 @@ type storageConfType = {
 @description('Azure region used from the resource group.')
 param location string = resourceGroup().location
 
+@description('Storage account UDR param config.')
 param storageConf storageConfType
 
 // Storage Account
