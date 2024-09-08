@@ -93,5 +93,5 @@ or PowerShell
 ```powershell
 Connect-AzAccount
 Set-AzContext -Subscription "subscription name or id"
-New-AzResourceGroupDeployment -Confirm -ResourceGroup "your-rg -TemplateFile "main.bicep"
+New-AzResourceGroupDeployment -Confirm -ResourceGroup "your-rg" -TemplateFile "main.bicep"
 ```
