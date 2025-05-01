@@ -22,22 +22,13 @@ For example, a `shared.bicep` file could reside in the root of your Bicep reposi
 
 ```bicep
 // shared.bicep with common vars
+@export()
+@description('The Primary Azure Region location')
+var location = 'uksouth'
 
 @export()
-@description('Primary Azure region.')
-var region = 'uksouth'
-
-@export()
-@description('Azure Landing Zone HUB subscription Id')
-var alzHubSubscriptionId = '0000-0000-0000-000'
-
-@export()
-@description('Azure Landing Zone HUB Resource Group')
-var alzHubResourceGroup = 'rg-hub'
-
-@export()
-@description('Branch Office Public IP for network ACLs')
-var branchOfficePip = '82.102.11.90'
+@description('Branch Office Public IP')
+var branchOfficePublicIP = '82.110.72.90'
 ```
 
 Entra example:
@@ -45,26 +36,33 @@ Entra example:
 ```bicep
 @export()
 @description('Common Entra Security Group(s) for RBAC')
-var entraSecurityGroups = [
-    {
-        displayName: 'SG_Cloud_Team',
+var entraSecurityGroups = {
+    SG_Cloud_Team: {
+        displayName: 'SG_Cloud_Team'
         objectId: '11111111-1111-1111-1111-111111111111'
-    },
-    {
-        displayName: 'SG_Security_Team',
+    }
+    SG_Security_Team: {
+        displayName: 'SG_Security_Team'
         objectId: '22222222-2222-2222-2222-222222222222'
-    },
-    {
-        displayName: 'SG_Dev_Team',
+    }
+    SG_Dev_Team: {
+        displayName: 'SG_Dev_Team'
         objectId: '33333333-3333-3333-3333-333333333333'
     }
-]
+}
 ```
 ## Import Example
 
 ```bicep
-import * as shared '../shared.bicep'
-
+import * as shared from 'shared.bicep'
+...
+roleAssignments: [
+      {
+        principalId: shared.entraSecurityGroups.SG_Cloud_Team.objectId // Using imported Entra Security Group Object ID
+        roleDefinitionIdOrName: 'Contributor'
+      }
+    ]
+```
 
 
 ## 🚀 Deployment
