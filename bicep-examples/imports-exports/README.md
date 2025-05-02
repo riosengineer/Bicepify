@@ -4,8 +4,6 @@
 
 The import and export feature in Bicep allows you to resuse commonly used variables. Exports allows you to define variables to be exported for use elsewhere in other templates. Imports let you pull in variables pre-defined elsewhere, so you don’t have to duplicate code. 
 
-This approach keeps your templates tidy, consistent, and easier to manage as your environment grows.
-
 ## 📃 Benefits of User Defined Types
 
 ✅ Centraliation: Allows you to define commonly repeated variables and user defined types in one file that many Bicep templates can reuse.
