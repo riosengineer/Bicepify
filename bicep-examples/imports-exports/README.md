@@ -55,6 +55,8 @@ var entraSecurityGroups = {
 
 ```bicep
 import * as shared from 'shared.bicep'
+
+module rg 'br/public:avm/res/resources/resource-group:0.4.1' = {
 ...
 roleAssignments: [
       {
