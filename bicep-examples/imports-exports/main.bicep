@@ -33,11 +33,7 @@ module keyVault 'br/public:avm/res/key-vault/vault:0.12.1' = {
     name: keyVaultName
     location: location
     sku: 'standard'
-    publicNetworkAccess: ''
-    enableSoftDelete: true
-    enableRbacAuthorization: true
-    enablePurgeProtection: true
-    softDeleteRetentionInDays: 90
+    publicNetworkAccess: 'Disabled' // Selected Networking
     networkAcls: {
       defaultAction: 'Deny'
       bypass: 'AzureServices'

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The import and export feature in Bicep allows you to resuse commonly used variables. Exports allows you to define variables to be exported for use elsewhere in other templates. Imports let you pull in variables pre-defined elsewhere, so you don’t have to duplicate code. 
+The import and export feature in Bicep allows you to resuse commonly used variables and types. Exports allow you to define variables to be imported for use elsewhere in other templates. Imports let you pull in variables pre-defined elsewhere, so you don’t have to duplicate the same code values in every bicep file. 
 
 Instead of repeatedly typing your variable value in every new Bicep file for example, `var budgetAlertEmail = 'dan@rios.engineer'` you can store this value centrally and import it into your template instead. 
 
@@ -14,13 +14,13 @@ This can be used for many use cases beyond the examples here (subscription Ids, 
 
 ✅ Reduces repetition: Variables you may be repeating in each Bicep template can now be moved centrally, reducing repetition and streamlining templates.
 
-✅ Resuability: The exports can now be used across multiple projects and templates allowing much greater resuability for standards and common values.
+✅ Resuability: The exports can now be used across multiple projects and templates allowing much greater resuability for standards and common values. This can also help reduce configuration errors.
 
 ## Export Examples
 
 In the exports example, you can define what variables or types you want to be available to be 'imported' by defining an @export() decorator next to them.
 
-For example, a `shared.bicep` file could reside in the root of your Bicep repository with these commonly used variables:
+For example, a `shared.bicep` file could reside in the root of your Bicep folder within your repository, with these commonly used variables as an example:
 
 ```bicep
 // shared.bicep with common vars
@@ -70,8 +70,9 @@ roleAssignments: [
 
 ### ACL IP Example:
 ```bicep
-import * as shared from 'shared.bicep'
-
+import * as shared from 'shared.bicep' 
+// or you can only import the required variable vs all available via 
+// import { branchOfficePublicIP } as branchOfficePublicIP from 'shared.bicep' as an example
 module keyVault 'br/public:avm/res/key-vault/vault:0.12.1' = {
 ....
     networkAcls: {
