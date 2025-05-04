@@ -4,6 +4,10 @@
 
 The import and export feature in Bicep allows you to resuse commonly used variables. Exports allows you to define variables to be exported for use elsewhere in other templates. Imports let you pull in variables pre-defined elsewhere, so you don’t have to duplicate code. 
 
+Instead of repeatedly typing your variable value in every new Bicep file for example, `var budgetAlertEmail = 'dan@rios.engineer'` you can store this value centrally and import it into your template instead. 
+
+This can be used for many use cases beyond the examples here (subscription Ids, service principal ids, app registrations, private DNS zone FQDNs, etc.).
+
 ## 📃 Benefits of User Defined Types
 
 ✅ Centraliation: Allows you to define commonly repeated variables and user defined types in one file that many Bicep templates can reuse.
@@ -12,7 +16,7 @@ The import and export feature in Bicep allows you to resuse commonly used variab
 
 ✅ Resuability: The exports can now be used across multiple projects and templates allowing much greater resuability for standards and common values.
 
-## Export Example
+## Export Examples
 
 In the exports example, you can define what variables or types you want to be available to be 'imported' by defining an @export() decorator next to them.
 
@@ -29,7 +33,7 @@ var location = 'uksouth'
 var branchOfficePublicIP = '82.110.72.90'
 ```
 
-Entra example:
+### Entra example:
 
 ```bicep
 @export()
@@ -49,8 +53,8 @@ var entraSecurityGroups = {
     }
 }
 ```
-## Import Example
-
+## Import Examples
+### Entra ObjectId
 ```bicep
 import * as shared from 'shared.bicep'
 
@@ -64,6 +68,25 @@ roleAssignments: [
     ]
 ```
 
+### ACL IP Example:
+```bicep
+import * as shared from 'shared.bicep'
+
+module keyVault 'br/public:avm/res/key-vault/vault:0.12.1' = {
+....
+    networkAcls: {
+      defaultAction: 'Deny'
+      bypass: 'AzureServices'
+      virtualNetworkRules: []
+      ipRules: [
+        {
+          value: shared.branchOfficePublicIP // using central import value from shared.bicep
+          action: 'Allow'
+        }
+      ]
+    }
+  }
+```
 
 ## 🚀 Deployment
 

@@ -22,3 +22,7 @@ var location = 'uksouth'
 @export()
 @description('Branch Office Public IP')
 var branchOfficePublicIP = '82.110.72.90'
+
+@export()
+@description('Azure Websites Private DNS Zone FQDN')
+var azureWebsitesPrivateDnsZone = 'privatelink.azurewebsites.net'
