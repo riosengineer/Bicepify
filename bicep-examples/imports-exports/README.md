@@ -2,11 +2,15 @@
 
 ## Introduction
 
-The import and export feature in Bicep allows you to resuse commonly used variables and types. Exports allow you to define variables to be imported for use elsewhere in other templates. Imports let you pull in variables pre-defined elsewhere, so you don’t have to duplicate the same code values in every bicep file. 
+The import and export feature in Bicep allows you to reuse commonly used variables and types efficiently. Exports enable you to define variables that can be imported for use in other templates, while imports allow you to pull in pre-defined variables—eliminating the need to duplicate code across multiple Bicep files.
 
-Instead of repeatedly typing your variable value in every new Bicep file for example, `var budgetAlertEmail = 'dan@rios.engineer'` you can store this value centrally and import it into your template instead. 
+Instead of manually defining a variable in every new Bicep file, such as:
 
-This can be used for many use cases beyond the examples here (subscription Ids, service principal ids, app registrations, private DNS zone FQDNs, etc.).
+ `var budgetAlertEmail = 'dan@rios.engineer'` 
+
+You can store this value centrally and simply import it into your template when needed.
+
+This functionality extends beyond just variables (and types). It can be applied to various use cases, such as subscription IDs, service principal IDs, app registrations, and private DNS zone FQDNs and tons more. Helping maintain consistency and reducing repetitive code.
 
 ## 📃 Benefits of User Defined Types
 
@@ -18,7 +22,7 @@ This can be used for many use cases beyond the examples here (subscription Ids, 
 
 ## Export Examples
 
-In the exports example, you can define what variables or types you want to be available to be 'imported' by defining an @export() decorator next to them.
+In the exports example, you can define what variables or types you want to be available to be imported by defining an @export() decorator next to them.
 
 For example, a `shared.bicep` file could reside in the root of your Bicep folder within your repository, with these commonly used variables as an example:
 
