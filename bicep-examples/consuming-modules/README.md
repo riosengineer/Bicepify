@@ -8,18 +8,20 @@ If you're new to Bicep understanding the different ways to consume modules can b
 
 Please review the blog post to get an understanding on the pros & cons of each consumption method. These are based on real world experiences using all methods, straight from the battlefield.
 
-## Public Bicep Registry
+## Public Bicep Registry (Azure Verfieid Modules)
 
 The public registry can be consumed directly from anywhere with ease and has quick adoption with no start up overhead as the modules are centrally stored by the team.
 
-```javascript
-module public_registry 'br/public:compute/function-app:2.0.1' = {
-  name: 'public_registry_example'
+The concept of AVM allows these modules to accelerate teams to deploy with Bicep, using best practice & aligned to the Well-Architected Framework that is managed by Microsoft so you don't have to maintain the modules yourselves. Be sure to check out more on [AVM](https://azure.github.io/Azure-Verified-Modules/overview/introduction/).
+
+```bicep
+module KeyVault 'br/public:avm/res/key-vault/vault:0.7.0' = {
+  name: 'avm_exmple'
   params: {
-    name: 'example-func-001'
+    name: 'kvName'
     location: 'uksouth'
-    storageAccountName: 'stsomestorageaccount001'
-    storageAccountResourceGroup: 'rg-some-rg-here'
+    sku: 'standard'
+    enableSoftDelete: true
   }
 }
 ```
@@ -88,9 +90,3 @@ module inline_module 'modules/inline/customModule.bicep' = {
   }
 }
 ```
-
-## Azure Verified Modules / Azure Bicep Public Registry
-
-[AVM](https://azure.github.io/Azure-Verified-Modules/faq/#what-is-happening-to-existing-initiatives-like-carml-and-tfvm)
-
-This is still in development at the time of writing. However, there is a new initiative by the IaC teams at Microsoft to present what good Infrastructure-as-Code looks like. The idea here will be these modules will accelerate teams to deploy with Bicep, using best practice & aligned to the Well-Architected Framework.
