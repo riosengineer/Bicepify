@@ -10,9 +10,9 @@ Instead of manually defining a variable in every new Bicep file, such as:
 
 You can store this value centrally and simply import it into your template when needed.
 
-This functionality extends beyond just variables (and types). It can be applied to various use cases, such as subscription IDs, service principal IDs, app registrations, and private DNS zone FQDNs and tons more. Helping maintain consistency and reducing repetitive code.
+This functionality extends beyond the examples presented here. It can be applied to various other use cases, such as but not limited to subscription IDs, service principal IDs, app registrations, and private DNS zone FQDNs and tons more. Helping maintain consistency and reducing repetitive code.
 
-## 📃 Benefits of User Defined Types
+## 📃 Benefits of Imports and Exports
 
 ✅ Centraliation: Allows you to define commonly repeated variables and user defined types in one file that many Bicep templates can reuse.
 
