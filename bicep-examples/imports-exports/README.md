@@ -59,7 +59,7 @@ var entraSecurityGroups = {
 ```
 ## Import Examples
 
-To import variables and types from your shared/central file you can use the `import as name` function to either import everything (*) or a specific variable (see location example below).
+To import variables and types from your shared/central file you can use the `import as name` function to either import everything (*) or a specific variable (see branch office example below).
 
 Once imported to the file, your Bicep intellisense will show your auto completion for your import name with all the available variables and types to use in the current template file.
 
