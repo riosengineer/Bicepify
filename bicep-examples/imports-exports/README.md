@@ -100,9 +100,6 @@ module keyVault 'br/public:avm/res/key-vault/vault:0.12.1' = {
 
 ## 🚀 Deployment
 
-> [!NOTE]  
-> You need to have a resource group deployed before trying this out.
-
 In VisualStudio Code open a terminal and run:
 
 CLI
