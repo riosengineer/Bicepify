@@ -8,8 +8,8 @@ param webAppName string = uniqueString(resourceGroup().id)
 @description('The runtime stack for the Web App, e.g. "DOTNET|9.0"')
 param runtime string = ''
 
-// Fail if runtime is empty
-var varRuntime = empty(trim(runtime)) ? fail('The runtime parameter is empty!') : runtime
+// Fail if runtime does not contain 'DOTNET'
+var varRuntime = contains(toUpper(runtime), 'DOTNET') ? runtime : fail('The runtime parameter must contain "DOTNET"!')
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
   name: appServicePlanName

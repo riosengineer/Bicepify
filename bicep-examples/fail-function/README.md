@@ -29,10 +29,10 @@ var storageAccountNameChecked = startsWith(storageAccountName, storageAccountPre
 
 ### Web App Runtime Validation
 
-Ensures runtime stack is specified. With Web Apps, you can technically deploy them without any runtime specified and ARM will return a successful deployment. However, the web app will not be functional as the runtime and stack are not set (e.g. DOTNET version 9.0). By adding a fail function to check if the parameter is set, you can fail pre-deployment with your custom error message.
+Ensures that the DOTNET runtime stack is specified. In this example, the `fail` function checks whether the `runtime` parameter includes "DOTNET" by using the `contains` function. If "DOTNET" is not found in the `runtime` value, the deployment will be stopped before any resources are created, displaying your custom error message.
 
 ```bicep
-var varRuntime = empty(trim(runtime)) ? fail('The runtime parameter must not be empty.') : runtime
+var varRuntime = contains(toUpper(runtime), 'DOTNET') ? runtime : fail('The runtime parameter must contain "DOTNET"!')
 ```
 
 ## 🚀 Deployment

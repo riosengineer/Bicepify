@@ -1,3 +1,4 @@
 using './webApp.bicep'
 
-//param runtime = 'DOTNETCORE|9.0'
+//change to param runtime = 'DOTNETCORE|9.0' to pass fail function
+param runtime = 'PYTHON|3.11'
