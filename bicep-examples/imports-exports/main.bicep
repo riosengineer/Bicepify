@@ -5,6 +5,10 @@ targetScope = 'subscription'
 import * as shared from 'shared.bicep'
 // import { location } as location from 'shared.bicep' to only import a specific var or type from the file.
 
+// MARK: Parameters
+@description('Tags for the resources')
+param tags shared.tagsType
+
 // MARK: Variables
 var location = shared.location // using central value from shared.bicep
 var rgName = 'rg-bicepify-demo'
@@ -22,6 +26,7 @@ module resourceGroupShared 'br/public:avm/res/resources/resource-group:0.4.1' = 
         roleDefinitionIdOrName: 'Contributor'
       }
     ]
+    tags: tags
   }
 }
 

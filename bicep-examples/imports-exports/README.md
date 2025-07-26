@@ -6,7 +6,7 @@ The import and export feature in Bicep allows you to reuse commonly used variabl
 
 Instead of manually defining a variable in every new Bicep file, such as:
 
- `var budgetAlertEmail = 'dan@rios.engineer'` 
+ `var budgetAlertEmail = 'dan@rios.engineer'`
 
 You can store this value centrally and simply import it into your template when needed.
 
@@ -37,7 +37,7 @@ var location = 'uksouth'
 var branchOfficePublicIP = '82.110.72.90'
 ```
 
-### Entra example:
+### Entra example
 
 ```bicep
 @export()
@@ -57,6 +57,7 @@ var entraSecurityGroups = {
     }
 }
 ```
+
 ## Import Examples
 
 To import variables and types from your shared/central file you can use the `import as name` function to either import everything (*) or a specific variable (see branch office example below).
@@ -64,6 +65,7 @@ To import variables and types from your shared/central file you can use the `imp
 Once imported to the file, your Bicep intellisense will show your auto completion for your import name with all the available variables and types to use in the current template file.
 
 ### Entra ObjectId
+
 ```bicep
 import * as shared from 'shared.bicep'
 
@@ -77,7 +79,8 @@ roleAssignments: [
     ]
 ```
 
-### ACL IP Example:
+### ACL IP Example
+
 ```bicep
 import * as shared from 'shared.bicep' 
 // or you can only import the required variable vs all available via 
