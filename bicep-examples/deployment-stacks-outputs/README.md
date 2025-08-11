@@ -22,7 +22,7 @@ In this example, you’ll deploy a user-assigned managed identity in one stack, 
 **Stack Bicep (outputs):**
 
 ```bicep
-output userAssignedIdentityId string = modUserAssignedIdentity.outputs.resourceId
+output userAssignedIdentityId string = modUserAssignedIdentity.outputs.principalId
 ```
 
 **Main Bicep:**
@@ -33,6 +33,15 @@ Here, we're referencing the existing stack resource in another subscription (the
 @description('The subscription ID where the referenced stack exists.')
 param stackSubscriptionId string
 
+@description('Azure region for deployments chosen from the resource group.')
+param location string = 'uksouth'
+
+@description('Name of the Key Vault resource.')
+param keyVaultName string
+
+@description('Name of the resource group for the Key Vault.')
+param rgName string
+
 @description('Your Deployment Stack name that you want to pull outputs from.')
 var stackName = 'az-bicepify-stack-output'
 
@@ -41,20 +50,35 @@ resource existingStack 'Microsoft.Resources/deploymentStacks@2024-03-01' existin
   scope: subscription(stackSubscriptionId)
 }
 
-var stackOutputs = existingStack.properties.outputs
+@description('Creating stack outputs variable to reference existing stack outputs.')
+var stackOutputs object = existingStack.properties.outputs
 var stackOutputsUserAssignedIdentityId string = stackOutputs.userAssignedIdentityId.value // We get no intellisense here, so you have to know the output name and append the `.value` on the end for the string value.
 
-module modStorageAccount 'br/public:avm/res/storage/storage-account:0.26.0' = {
-  // ...existing code...
-  managedIdentities: {
-    userAssignedResourceIds: [
-      stackOutputsUserAssignedIdentityId
+module modResourceGroup 'br/public:avm/res/resources-resource-group:0.4.1' = {
+  params: {
+    name: resourceGroupName
+    location: location
+  }
+}
+
+module modKeyVault 'br/public:avm/res/key-vault/vault:0.13.1' = {
+  scope: resourceGroup(resourceGroupName)
+  params: {
+    name: keyVaultName
+    location: location
+    sku: 'standard'
+    roleAssignments: [
+      {
+        principalId: stackOutputsUserAssignedIdentityId // Using the UMI resourceId from the existing stack
+        principalType: 'ServicePrincipal'
+        roleDefinitionIdOrName: 'Key Vault Secrets User'
+      }
     ]
   }
 }
 ```
 
-By referencing the stack output, you can connect resources across templates and scopes in a robust, automated way.
+By referencing the stack output, you can connect resources across templates and scopes automatically!
 
 ## 🚀 Deployment
 
@@ -75,8 +99,6 @@ az deployment sub create -l uksouth -f .\bicep-examples\deployment-stacks-output
 ```
 
 or PowerShell
-
-PowerShell
 
 ```powershell
 Connect-AzAccount
