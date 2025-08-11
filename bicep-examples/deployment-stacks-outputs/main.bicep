@@ -19,16 +19,16 @@ param resourceGroupName string
 var stackName = 'az-bicepify-stack-output'
 
 @description('Creating stack outputs variable to reference existing stack outputs.')
-var stackOutputs = existingStack.properties.outputs
-output stackOutputsState string = stackOutputs.userAssignedIdentityId[0]
+var stackOutputs object = existingStack.properties.outputs
+var stackOutputsUserAssignedIdentityId string = stackOutputs.userAssignedIdentityId.value
 
 @description('The subscription ID where the referenced stack exists.')
-param stackSubscriptionId string = subscription().id
+param stackSubscriptionId string = '1417db09-accd-4799-b224-4346e5cb12c3'
 
 // Existing Deployment Stack 
 resource existingStack 'Microsoft.Resources/deploymentStacks@2024-03-01' existing = {
   name: stackName
-  //scope: subscription(stackSubscriptionId)
+  scope: subscription(stackSubscriptionId)
 }
 
 // Modules 
@@ -49,11 +49,15 @@ module modStorageAccount 'br/public:avm/res/storage/storage-account:0.26.0' = {
     kind: 'StorageV2'
     managedIdentities: {
       userAssignedResourceIds: [
-        stackUserAssignedIdentityId // References existing stack output value
+        stackOutputsUserAssignedIdentityId // Using the stack output for user assigned identity ID
       ]
     }
   }
   dependsOn: [
     modResourceGroup
   ]
+}
+
+output test object = {
+  userAssignedIdentityId: stackOutputsUserAssignedIdentityId
 }
