@@ -10,13 +10,21 @@ metadata owner = 'dan@rios.engineer'
 param location string = 'uksouth'
 
 @maxLength(24)
-@description('Name of the Storage Account resource.')
-param storageAccountName string
+@description('Name of the Key Vault resource.')
+param keyVaultName string
 
+@description('Name of the resource group for the Key Vault.')
 param resourceGroupName string
+
 // Variables
 @description('Your Deployment Stack name that you want to pull outputs from.')
 var stackName = 'az-bicepify-stack-output'
+
+// Existing Deployment Stack 
+resource existingStack 'Microsoft.Resources/deploymentStacks@2024-03-01' existing = {
+  name: stackName
+  scope: subscription(stackSubscriptionId)
+}
 
 @description('Creating stack outputs variable to reference existing stack outputs.')
 var stackOutputs object = existingStack.properties.outputs
@@ -24,12 +32,6 @@ var stackOutputsUserAssignedIdentityId string = stackOutputs.userAssignedIdentit
 
 @description('The subscription ID where the referenced stack exists.')
 param stackSubscriptionId string = '1417db09-accd-4799-b224-4346e5cb12c3'
-
-// Existing Deployment Stack 
-resource existingStack 'Microsoft.Resources/deploymentStacks@2024-03-01' existing = {
-  name: stackName
-  scope: subscription(stackSubscriptionId)
-}
 
 // Modules 
 module modResourceGroup 'br/public:avm/res/resources/resource-group:0.4.1' = {
@@ -39,23 +41,20 @@ module modResourceGroup 'br/public:avm/res/resources/resource-group:0.4.1' = {
   }
 }
 
-module modStorageAccount 'br/public:avm/res/storage/storage-account:0.26.0' = {
-  name: '${uniqueString(deployment().name, location)}-storage'
-  scope: resourceGroup('${resourceGroupName}')
+module modKeyVault 'br/public:avm/res/key-vault/vault:0.13.1' = {
+  scope: resourceGroup(resourceGroupName)
   params: {
-    name: storageAccountName
+    name: keyVaultName
     location: location
-    skuName: 'Standard_LRS'
-    kind: 'StorageV2'
-    managedIdentities: {
-      userAssignedResourceIds: [
-        stackOutputsUserAssignedIdentityId // Using the stack output for user assigned identity ID
-      ]
-    }
+    sku: 'standard'
+    roleAssignments: [
+      {
+        principalId: stackOutputsUserAssignedIdentityId // Using the UMI resourceId from the existing stack
+        principalType: 'ServicePrincipal'
+        roleDefinitionIdOrName: 'Key Vault Secrets User'
+      }
+    ]
   }
-  dependsOn: [
-    modResourceGroup
-  ]
 }
 
 output test object = {

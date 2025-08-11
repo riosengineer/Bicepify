@@ -36,5 +36,5 @@ module modUserAssignedIdentity 'br/public:avm/res/managed-identity/user-assigned
   ]
 }
 
-output userAssignedIdentityId string = modUserAssignedIdentity.outputs.resourceId
+output userAssignedIdentityId string = modUserAssignedIdentity.outputs.principalId
 output resourceGroupId string = modResourceGroup.outputs.name

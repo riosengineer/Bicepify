@@ -1,5 +1,5 @@
 using './main.bicep'
 
-param storageAccountName = 'striosstackoutput'
+param keyVaultName = 'kv-stackoutput'
 param resourceGroupName = 'rg-stackoutput'
 
