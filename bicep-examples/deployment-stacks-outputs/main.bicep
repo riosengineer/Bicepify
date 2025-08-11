@@ -19,8 +19,8 @@ param resourceGroupName string
 var stackName = 'az-bicepify-stack-output'
 
 @description('Creating stack outputs variable to reference existing stack outputs.')
-var stackOutputs = existingStack.properties.provisioningState
-output stackOutputsState string = stackOutputs
+var stackOutputs = existingStack.properties.outputs
+output stackOutputsState string = stackOutputs.userAssignedIdentityId[0]
 
 @description('The subscription ID where the referenced stack exists.')
 param stackSubscriptionId string = subscription().id
