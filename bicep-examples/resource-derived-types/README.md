@@ -3,7 +3,7 @@
 ## Introduction
 
 > [!TIP]
-> Check this example out on the Bicep Users Group on LinkedIn to see a code snippet example here.
+> Check this example out on the Bicep Users Group on LinkedIn to see a code snippet example [here](https://www.linkedin.com/feed/update/urn:li:activity:7360935609323958272?utm_source=share&utm_medium=member_ios&rcm=ACoAABQc0g0BE6cF8NVeQPgDN4PQqnuxftB0rTE)
 
 Resource-derived types in Azure Bicep allow you to define the shape of an object or parameter based on the schema of an existing Azure resource. This enables you to ensure your parameters or variables match the exact structure expected by Azure resources, improving type safety and maintainability.
 
