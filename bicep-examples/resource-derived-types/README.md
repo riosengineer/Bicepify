@@ -13,7 +13,7 @@ This can be useful when you ***don't*** need a custom type enforced and instead 
 
 ✅ Type Safety: Resource-derived types ensure your objects match the schema of Azure resources, reducing misconfiguration risk.
 
-✅ Maintainability: If the resource schema changes, your Bicep code can automatically stay in sync by referencing the resource type.
+✅ Maintainability: If the resource schema changes, your Bicep code can automatically stay in sync by referencing the resource type. As the Resource Provider is defining the type to a particular API version you no longer to maintain or create your own type any longer.
 
 ✅ Intellisense: VS Code Bicep IntelliSense provides completions and validation based on the derived type, making authoring easier.
 
