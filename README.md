@@ -1,6 +1,6 @@
 # 💪 Bicepify
 
-Bicepify is a sample code repository project with a mission to simplify getting started into Azure Bicep.
+Bicepify is a sample repository with a mission to simplify getting started with Azure Bicep.
 
 We aim to do this by creating real example templates that are easy to digest and break down Azure Bicep concepts, with straight to the point explanations to jump start your Bicep journey 🚀
 
@@ -21,13 +21,13 @@ If you find this repository useful, please save the repository by hitting the �
 
 4. [Fork](https://github.com/riosengineer/Bicepify/fork) this repository so you have a copy to lab with the examples
 
-5. In your forked repository, click the green Code and Open with VisualStudio for a quick start
+5. In your forked repository, click the green Code button and choose Open with Visual Studio for a quick start.
 
 6. Read the README files for further information, explanations and deployment commands to test the example
 
 ## 🧪 About the project
 
-There's lots of great blog articles, Microsoft Documentation and repositories out there for Bicep.
+There are lots of great blog articles, Microsoft Documentation and repositories out there for Bicep.
 
 However, the data is scattered and sometimes the official documentation will have minimal examples or lack some context where real world examples can benefit the community to grasp the concept in a more relatable way.
 
@@ -53,7 +53,7 @@ Where possible, examples will be complimented by a blog post giving a deeper div
 
 [Microsoft Learn - Getting started with Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep)
 
-[Offical Bicep Repository](https://github.com/Azure/bicep)
+[Official Bicep Repository](https://github.com/Azure/bicep)
 
 [Bicep Azure Verified Modules (AVM) Repository](https://github.com/Azure/bicep-registry-modules)
 
@@ -64,3 +64,4 @@ Where possible, examples will be complimented by a blog post giving a deeper div
 ## 🖌️ Authors
 
 - [Rios Engineer](https://www.github.com/riosengineer)
+
