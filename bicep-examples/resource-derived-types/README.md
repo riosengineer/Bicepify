@@ -50,4 +50,4 @@ By using `resourceInput<>`, the parameters `storageSkuType` and `storageKindType
 > This example does not require a deployment. Rather showing that the intellisense now will autocomplete based on the derived type resource input.
 
 - Go to the `main.bicepparam` file
-- Select SKU param and press `cntrl+enter` to bring up the Bicep extensions autocomplete list. This list is being pulled from the resourceInput by the resource provider property.
+- Select SKU param and press `cntrl+space` to bring up the Bicep extensions autocomplete list. This list is being pulled from the resourceInput by the resource provider property.
