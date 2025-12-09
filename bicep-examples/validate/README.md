@@ -4,7 +4,7 @@
 
 The `@validate()` decorator in Azure Bicep allows you to add custom validation logic to your parameters. This enables you to enforce complex constraints that go beyond basic type checking, catching configuration errors at deployment time with clear error messages.
 
-This feature was released in [Bicep v0.38.3]https://github.com/Azure/bicep/releases/tag/v0.38.3) as an experimental feature.
+This feature was released in [Bicep v0.38.3](https://github.com/Azure/bicep/releases/tag/v0.38.3) as an experimental feature.
 
 ## 📃 Benefits of the Validate Decorator
 
