@@ -6,7 +6,8 @@ The `@onlyIfNotExists()` decorator in Azure Bicep enables **conditional resource
 
 It's particularly valuable for deploying resources that should only be created once, such as Key Vault secrets, where you want to avoid overwriting existing values or encountering "resource already exists" errors.
 
-**Key Concept**: The decorator checks only the resource **name** - it does not compare properties or configurations. If a resource with the same name exists, deployment is skipped entirely for that resource, regardless of whether its properties match the template definition.
+> [!NOTE]  
+> The decorator checks only the resource **name** - it does not compare properties or configurations. If a resource with the same name exists, deployment is skipped entirely for that resource, regardless of whether its properties match the template definition.
 
 Learn more about the `@onlyIfNotExists()` decorator in the [official Microsoft Learn documentation](https://learn.microsoft.com/azure/azure-resource-manager/bicep/resource-declaration?WT.mc_id=MVP_319025#onlyifnotexists-decorator).
 
@@ -41,38 +42,16 @@ resource kvSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
 
 1. **First Deployment**: The secret `mySecret` doesn't exist, so it's created with the value `SecureValue123!`
 2. **Subsequent Deployments**: The secret already exists with the same name, so deployment is skipped entirely - the existing value is preserved
-3. **Name-Based Check**: Only the secret name is checked; if a secret named `mySecret` exists, it won't be recreated regardless of its current value
+3. **Name-Based Check**: Only the secret name is checked; if a secret named `mySecret` exists, it won't be recreated regardless of its current value (check the secret version after two deployment runs to verify functionality.)
 
 ### Full Template
 
 The complete `main.bicep` file includes:
+
 - Azure Key Vault deployment using the Azure Verified Modules (AVM) pattern
 - A secret resource with the `@onlyIfNotExists()` decorator
 - Metadata for resource documentation
 - Outputs for the Key Vault name, URI, and secret name
-
-## ⚠️ Important Considerations
-
-### Decorator Placement
-The `@onlyIfNotExists()` decorator must be placed **directly above** the resource declaration:
-
-```bicep
-@onlyIfNotExists()
-resource myResource 'Microsoft.Provider/type@version' = { ... }
-```
-
-### Bicep CLI Version Requirement
-Requires **Bicep CLI 0.38.0 or later**. Check your version:
-
-```bash
-bicep --version
-```
-
-### Name-Based Detection Only
-The decorator **only checks if a resource with the specified name exists**. It does not:
-- Compare resource properties or configurations
-- Detect if the existing resource matches your template definition
-- Update existing resources with new property values
 
 ### Scope Limitations
 

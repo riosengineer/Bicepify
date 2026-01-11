@@ -2,7 +2,6 @@ targetScope = 'resourceGroup'
 
 metadata name = 'Key Vault with onlyIfNotExists Secret deployment'
 metadata description = 'Showcasing Azure Bicep @onlyIfNotExists decorator for conditional secret deployment'
-metadata owner = 'security@example.com'
 
 @description('Azure region for deployments chosen from the resource group.')
 param location string = resourceGroup().location
@@ -20,16 +19,20 @@ module keyVault 'br/public:avm/res/key-vault/vault:0.13.3' = {
     enableRbacAuthorization: false
     enableSoftDelete: true
     softDeleteRetentionInDays: 7
+    enablePurgeProtection: false
   }
 }
 
 // Deploy secret to the Key Vault using @onlyIfNotExists decorator
 @onlyIfNotExists()
 resource kvSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
-  name: '${keyVault.outputs.name}/mySecret'
+  name: '${kvName}/mySecret'
   properties: {
     value: 'SecureValue123!'
   }
+  dependsOn: [
+    keyVault
+  ]
 }
 
 @description('Key Vault name output.')
