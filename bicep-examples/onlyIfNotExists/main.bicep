@@ -9,6 +9,10 @@ param location string = resourceGroup().location
 @description('Key Vault name - globally unique.')
 param kvName string = 'kv-${uniqueString(resourceGroup().id)}'
 
+@secure()
+@description('Initial value for the Key Vault secret. Passed in at deploy time to avoid hardcoding secrets.')
+param kvSecretValue string
+
 // Deploy Key Vault using AVM
 module keyVault 'br/public:avm/res/key-vault/vault:0.13.3' = {
   name: '${uniqueString(deployment().name, location)}-kv'
@@ -28,7 +32,7 @@ module keyVault 'br/public:avm/res/key-vault/vault:0.13.3' = {
 resource kvSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
   name: '${kvName}/mySecret'
   properties: {
-    value: 'SecureValue123!'
+    value: kvSecretValue
   }
   dependsOn: [
     keyVault

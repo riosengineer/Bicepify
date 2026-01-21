@@ -28,19 +28,22 @@ This example demonstrates deploying an Azure Key Vault and a secret using the `@
 ### Bicep Code Snippet
 
 ```bicep
+@secure()
+param kvSecretValue string
+
 // Deploy secret to the Key Vault using @onlyIfNotExists decorator
 @onlyIfNotExists()
 resource kvSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
   name: '${keyVault.outputs.name}/mySecret'
   properties: {
-    value: 'SecureValue123!'
+    value: kvSecretValue
   }
 }
 ```
 
 ### How It Works
 
-1. **First Deployment**: The secret `mySecret` doesn't exist, so it's created with the value `SecureValue123!`
+1. **First Deployment**: The secret `mySecret` doesn't exist, so it's created with the value you pass at deployment time
 2. **Subsequent Deployments**: The secret already exists with the same name, so deployment is skipped entirely - the existing value is preserved
 3. **Name-Based Check**: Only the secret name is checked; if a secret named `mySecret` exists, it won't be recreated regardless of its current value (check the secret version after two deployment runs to verify functionality.)
 
@@ -71,7 +74,8 @@ az group create --name rg-onlyIfNotExists-example --location uksouth
 
 az deployment group create \
   --resource-group rg-onlyIfNotExists-example \
-  --template-file main.bicep
+  --template-file main.bicep \
+  --parameters kvSecretValue="<your-secret-value>"
 ```
 
 ### Deploy with Azure PowerShell
@@ -81,5 +85,6 @@ New-AzResourceGroup -Name rg-onlyIfNotExists-example -Location uksouth
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName rg-onlyIfNotExists-example `
-  -TemplateFile main.bicep
+  -TemplateFile main.bicep `
+  -kvSecretValue '<your-secret-value>'
 ```
